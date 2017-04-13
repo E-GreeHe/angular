@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/bootstrap.css" />
+	<script src="../js/angular.js"></script>
+	<script>
+		var app = angular.module("demo",[]);
+		app.controller('indexCtrl',function($scope){
+			$scope.text = '第一个组件的文字';
+			$scope.name = 'E-Gree';
+			$scope.Click = function() {
+				console.log("a")
+			}
+		})
+		app.controller('dirCtrl', function($scope) {
+			console.log("controller");
+			$scope.name = "abc"
+			$scope.cba = "cba";
+			/*console.log($scope)
+			console.log($element)
+			console.log($attrs)*/
+			$scope.abc = function() {
+				console.log("abcd")
+			}
+		})
+		app.controller('index2Ctrl', function($scope) {
+			$scope.text = '第二个组件的文字';
+			$scope.name = 'E-Gree';
+			$scope.Click = function() {
+				console.log("b")
+			}
+		})
+		app.directive("xtable",function($http){
+			return {
+				restrict:"ECMA",
+				//element :元素，标签
+				//attribute :属性
+				//class: 类
+				//m :注释
+				replace:false,
+				scope:{
+					hello:"=hello"
+				},
+				templateUrl:"../directive/xtable.html",
+				controller: "dirCtrl",
+				link:function(scope, ele, attr){
+					$http({
+						method:"post",
+						url:"../js/test.json",
+						params:{
+							"username":"E-Gree"
+						}
+					}).then(function(data){
+						scope.text = data.data.name;
+					},function(data) {
+
+					})
+					scope.text = "你好"
+					console.log(attr)
+				}
+			}
+		})
+	</script>
+	<body>
+		<div ng-controller="indexCtrl">
+			<xtable></xtable>
+			<p>{{}}</p>
+		</div>
+		<div ng-controller="index2Ctrl">
+			<xtable abc="A" hello="name"></xtable>
+			<input ng-model="name" />
+			<!--组件-->
+			<!--以属性值呈现 ng-XXX-->
+			<!--<div yao-abc></div>-->
+			<!--以标签的呈现<ng-xie></ng-xie>-->
+			<!--<ng-xie></ng-xie>-->
+			<!--<header></header>-->
+			<!--<div class="ng-xie"></div>-->
+			<!--directive:ng-xie asdasdasd-->
+		</div>
+	</body>
+</html>

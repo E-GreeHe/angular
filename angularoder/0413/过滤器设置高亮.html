@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/angular.js"></script>
+	<script>
+		var app = angular.module("demo", []);
+		app.controller("indexCtrl", function($scope) {
+			$scope.html = " 你说帘外海棠.锦屏鸳鸯.后来庭院春深.咫尺画堂. 你说笛声如诉.费尽思量.后来茶烟尚绿.人影茫茫. 你说可人如玉.与子偕臧.后来长亭远望.夜色微凉...";
+		})
+		app.filter("highlight",function(){
+			return function(input,value){
+				var arr = input.split(value);
+				var output = arr.join("<span style='color:red'>" + value + "</span>")
+				return output;
+			}
+		})
+		app.filter("html",function($sce){
+			return function(input){
+				return $sce.trustAsHtml(input);
+			}
+		})
+	</script>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<input ng-model="search" />
+			<p ng-bind-html="html|highlight:search|html"></p>
+		</div>
+	</body>
+</html>
