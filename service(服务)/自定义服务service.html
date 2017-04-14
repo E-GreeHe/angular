@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/angular.js"></script>
+	<script>
+		/*
+			使用service()可以注册一个支持构造函数的服务，它允许我们为服务对象注册一个构造函数。
+			service()方法接受两个参数。name（字符串）要注册的服务名称。constructor（函数）。
+		*/
+
+		var app = angular.module("demo", []);
+		//注入服务 tool1,tool2,cookie
+		app.controller("indexCtrl", function($scope, tool1, tool2, cookie) {
+			$scope.name = "E-Gree";
+			console.log(tool1);
+			console.log(tool1.sum(16, 12));
+			console.log(tool2.sum(11, 22));
+			console.log(tool2.multiply(2, 3));
+			tool2.http({
+				url: "../api/get.php",
+				method: "GET",
+				params: {
+					name: "angular"
+				}
+			}).then(function(data) {
+				console.log(data.data);
+			});
+			cookie.setCookie("name", "E-Gree");
+			console.log(cookie.getCookie("name"))
+		});
+		//自定义服务 工具tool1 :内部返回一个函数,计算a+b的值
+		app.service("tool1", function() {
+			return {
+				sum: function(a, b) {
+					return a + b;
+				}
+			}
+		});
+		//自定义服务 工具tool2 :内部返回一个函数,计算a*b的值  
+		//工具2 继承工具tool1的方法  又拥有自己的乘法
+		//工具2 还注入了一个$http服务
+		app.service("tool2", function(tool1, $http) {
+			return {
+				sum: tool1.sum,
+				multiply: function(a, b) {
+					return a * b
+				},
+				http: $http
+			}
+		});
+		//自定义服务cookie  返回一个setCookie和getCookie的方法
+		app.service("cookie", function($document) {
+			return {
+				setCookie: function(name, value) {
+					var days = 10;
+					var ex = new Date();
+					ex.setTime(ex.getTime() + days * 24 * 60 * 60 * 1000)
+					$document[0].cookie = name + "=" + value + ";expires=" + ex;
+				},
+				getCookie: function(name) {
+					var a;
+					var reg = new RegExp("(^|)" + name + "=([^;]*)(;|$)");
+					if(a = $document[0].cookie.match(reg)) {
+						return a[2];
+					}
+				}
+			}
+		});
+	</script>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+
+</html>

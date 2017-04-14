@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/angular.js"></script>
+	<script>
+		/*
+			如果服务的$get方法返回的是一个常量，那就没要必要定义一个包含复杂功能的完整服务，可以通过value()函数方便地注册服务。
+			value()方法可以接受两个参数。
+			name（字符串）
+			同样是需要注册的服务名。
+			value（值）
+			将这个值将作为可以注入的实例返回。
+			value()方法返回以name参数的值为名称的注册后的服务实例。
+			angular.module('myApp')
+			.value('apiKey','123123123');
+			 */
+		var app = angular.module("demo", []);
+		app.controller("indexCtrl", function($scope, age, name, obj) {
+			$scope.name = "E-Gree";
+			console.log(name);
+			console.log(age);
+			console.log(obj)
+		});
+		app.value("name", "E-Gree");
+		app.value("age", 18);
+		app.value("obj", {
+			"name": "E-Gree",
+			"age": 18
+		})
+	</script>
+
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+
+</html>

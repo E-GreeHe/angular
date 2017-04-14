@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/angular.js"></script>
+	<script>
+		//constant和value都是用来设置常量的，他们的区别是constant方法是可以通过config方法配置获取的，而value方法是不可以通过配置获取的；
+		//用constant()将其当作常量保存下来。constant()函数可以接受两个参数。name（字符串）需要注册的常量的名字。value（常量）需要注册的常量的值（值或者对象）。
+		var app = angular.module("demo",[]);
+		app.controller("indexCtrl",function($scope,author){
+			$scope.name = "E-Gree";
+			console.log(author);//E-Gree
+			author = 456;
+			console.log(author);//456
+		});
+		app.constant("author","E-Gree");
+	</script>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>

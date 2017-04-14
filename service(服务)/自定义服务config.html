@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="../js/angular.js" ></script>
+	<script>
+		//factory方法是不能用config方法进行初始化配置的，而provider是可以使用config方法进行初始化配置的 
+		var app = angular.module("demo",[]);
+		app.controller("indexCtrl",function($scope,config1,config2,config3){
+			$scope.name = "E-Gree";
+			console.log(config1);
+			console.log(config2);
+			console.log(config3);
+		})
+		app.config(function($provide){
+			$provide.service("config1",function(){
+				this.name = "E-Gree";
+				this,age = 18;
+			})
+			$provide.factory("config2",function(){
+				return {
+					name: "E-GreeP",
+					age:18
+				}
+			})
+			$provide.value("config3",{
+				name:"E-GreePei",
+				age:18
+			})
+		})
+	</script>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../js/angular.js"></script>
+	<script>
+		//函数可以接受两个参数。name（字符串）需要注册的服务名。getFn（函数）。
+		//可以返回对象,可以返回构造函数。
+		/*
+		.factory('name', fn() {
+	        return {
+	                    'username': 'auser'
+	        };
+	        this.a = b;
+	        ....
+	    });
+	        
+         */
+		var app = angular.module("demo",[]);
+		app.controller("indexCtrl",function($scope,fac,tool){
+			$scope.name = "fac";
+			console.log(fac,fac.name,fac.age);
+			console.log(tool,tool.name,tool.age);
+		});
+		app.factory("fac",function(){
+			return {
+				name: "E-Gree",
+				age: 18
+			}
+		});
+		//它是构造器，也可以返回对象，如果是一个构造函数的时候，当我们注入这个服务，ng对它自动实例化
+		app.service("tool",function(){
+			this.name = "E-Gree";
+			this.age = 18;
+		})
+	</script>
+	<body>
+		<div ng-controller="indexCtrl">
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>
