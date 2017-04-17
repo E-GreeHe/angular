@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="../css/bootstrap.css"/>
+	<link rel="stylesheet" href="../css/swiper.css"/>
+	<script src="../js/angular.js" ></script>
+	<script src="../js/jquery-3.1.1.js"></script>
+	<script src="../js/angular-route.js" ></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/swiper.js"></script>
+	<script>
+		var app = angular.module("demo",["ngRoute"]);
+		app.config(function($routeProvider){
+			$routeProvider.when("/index",{
+				templateUrl: "directive/xheader.html",
+				controller: "indexCtrl"
+			}).when("/list",{
+				templateUrl: "directive/xheader.html",
+				controller: "listCtrl"
+			}).when("/login",{
+				templateUrl: "directive/xheader.html",
+				controller: "loginCtrl"
+			}).otherwise({
+				redirectTo: "/index"
+			})
+		});
+		app.controller("indexCtrl",function($scope){
+			$scope.name = "index页名字"
+		});
+		app.controller("listCtrl",function($scope){
+			$scope.name = "list页名字"
+		});
+		app.controller("loginCtrl",function($scope){
+			$scope.name = "login页名字"
+		});
+		app.directive("xheader",function(){
+			return {
+				templateUrl: 'directive/directive.html',
+				link: function(scope,ele,attr){
+					
+				}
+			}
+		})
+	</script>
+	<body>
+		<a href="#!/index">index</a>
+		<a href="#!/list">list</a>
+		<a href="#!/login">login</a>
+		<div ng-view=""></div>
+	</body>
+</html>

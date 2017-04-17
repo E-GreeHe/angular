@@ -1,0 +1,120 @@
+<div>
+	<div id="tpn" class="content-links">
+		<div class="previous-link">←
+			<a href="/angularjs/angularjs-intro.html" title="AngularJS 简介">AngularJS 简介</a>
+		</div>
+		<div class="next-link">
+			<a href="/angularjs/angularjs-directives.html" title="AngularJS 指令">AngularJS 指令</a> →</div>
+	</div>
+	<!--广告放置-->
+	<div class="content-abox">
+		<a href="//www.w3cschool.cn/index/adlog?url=//www.bjsxt.com&amp;type=content" target="_blank" rel="nofollow"><img src="/attachments/image/20170405/1491384200537518.gif" alt="尚学堂"></a>
+	</div>
+	<div class="content-bg">
+		<div class="content-head">
+			<div class="content-head-title">
+				<h1 class="content-title">AngularJS 表达式</h1>
+				<a class="correction" href="/edit/angularjs/angularjs-expressions" rel="nofollow"><i class="edit-error-icon"></i>我要纠错</a>
+			</div>
+			<div class="content-group">
+				<span id="content-head-viewcount"><i class="viewcount-icon"></i><span>阅读(11307)</span></span>
+				<a id="hbstar" href="javascript:;" onclick="isstar()" data-type="star"><i class="star-icon"></i><span>收藏</span></a>
+				<a class="btn-thumbs-up" href="javascript:;" onclick="islike()"><i class="thumbs-up-icon"></i><span id="likestatus">赞</span>(<span id="likecount">3</span>)</a>
+				<a href="javascript:;" title="分享" class="share-km-a btn btn-sm popup_more bdsharebuttonbox bdshare-button-style2-16" data-cmd="more" data-bd-bind="1492426537945"><i class="share-icon"></i><span>分享</span></a>
+				<a id="newversion" href="javascript:;" onclick="newversion()"><i class="newversion-icon"></i><span>新版预览</span></a>
+			</div>
+		</div>
+		<div class="content-intro view-box">
+			<h2>AngularJS <span class="color_h1">表达式</span> </h2>
+			<hr>
+			<p class="intro">AngularJS 使用 <strong>表达式</strong> 把数据绑定到 HTML。</p>
+			<hr>
+			<h2>AngularJS 表达式</h2>
+			<p>AngularJS 表达式写在双大括号内：<strong>{{ expression }}</strong>。</p>
+			<p>AngularJS 表达式把数据绑定到 HTML，这与 <strong>ng-bind</strong> 指令有异曲同工之妙。</p>
+			<p>AngularJS 将在表达式书写的位置"输出"数据。</p>
+			<p><strong>AngularJS 表达式</strong> 很像 <strong>JavaScript 表达式</strong>：它们可以包含文字、运算符和变量。</p>
+			<p>实例 {{ 5 + 5 }} 或 {{ firstName + " " + lastName }}</p>
+			<hr>
+			<h2>AngularJS 数字</h2>
+			<p>AngularJS 数据就像 JavaScript 数字：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="quantity=1;cost=5"&gt;<br><br> &lt;p&gt;总价： {{ quantity * cost }}&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_expressions" target="_blank">尝试一下 »</a>
+			</div>
+			<p>使用 ng-bind 的相同实例：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="quantity=1;cost=5"&gt;<br><br> &lt;p&gt;总价： &lt;span ng-bind="quantity * cost"&gt;&lt;/span&gt;&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_bind_numbers" target="_blank">尝试一下 »</a>
+			</div>
+			<p> </p>
+			<table class="lamp">
+				<tbody>
+					<tr>
+						<th style="width:34px"><img src="/statics/images/course/lamp.jpg" alt="Note" style="height:32px;width:32px"></th>
+						<td> 使用 <strong>ng-init</strong> 不是很常见。您将在控制器一章中学习到一个更好的初始化数据的方式。</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<h2>AngularJS 字符串</h2>
+			<p>AngularJS 字符串就像 JavaScript 字符串：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="firstName='John';lastName='Doe'"&gt;<br><br>&lt;p&gt;姓名： {{ firstName + " " + lastName }}&lt;/p&gt;<br><br>&lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_expressions_strings" target="_blank">尝试一下 »</a>
+			</div>
+			<p>使用 ng-bind 的相同实例：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="firstName='John';lastName='Doe'"&gt;<br><br> &lt;p&gt;姓名： &lt;span ng-bind="firstName + ' ' + lastName"&gt;&lt;/span&gt;&lt;/p&gt;<br><br>&lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_bind_strings" target="_blank">尝试一下 »</a>
+			</div> <br>
+			<hr>
+			<h2>AngularJS 对象</h2>
+			<p>AngularJS 对象就像 JavaScript 对象：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}"&gt;<br><br> &lt;p&gt;姓为 {{ person.lastName }}&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_expressions_objects" target="_blank">尝试一下 »</a>
+			</div>
+			<p>使用 ng-bind 的相同实例：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}"&gt;<br><br> &lt;p&gt;姓为 &lt;span ng-bind="person.lastName"&gt;&lt;/span&gt;&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_bind_objects" target="_blank">尝试一下 »</a>
+			</div> <br>
+			<hr>
+			<h2>AngularJS 数组</h2>
+			<p>AngularJS 数组就像 JavaScript 数组：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;<br><br> &lt;p&gt;第三个值为 {{ points[2] }}&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_expressions_arrays" target="_blank">尝试一下 »</a>
+			</div>
+			<p>使用 ng-bind 的相同实例：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;<br><br> &lt;p&gt;第三个值为 &lt;span ng-bind="points[2]"&gt;&lt;/span&gt;&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_bind_arrays" target="_blank">尝试一下 »</a>
+			</div> <br><br><br><br></div>
+	</div>
+	<!--我要上墙-->
+	<div class="project-sq">
+		<div class="project-sq-info"><span>您的支持将鼓励我们做得更好</span></div>
+		<ul class="project-sq-avatar"></ul>
+		<div class="project-sq-btnarea">
+			<a href="javascript:;">赞赏支持</a>
+		</div>
+	</div>
+	<!--我要上墙结束-->
+	<div id="bpn" class="content-links">
+		<div class="previous-link">←
+			<a href="/angularjs/angularjs-intro.html" title="AngularJS 简介">AngularJS 简介</a>
+		</div>
+		<div class="next-link">
+			<a href="/angularjs/angularjs-directives.html" title="AngularJS 指令">AngularJS 指令</a> →</div>
+	</div>
+</div>

@@ -1,0 +1,102 @@
+<div>
+	
+	<w3cheader></w3cheader>
+	<w3nav></w3nav>
+
+	<div ui-view></div>
+	<!--footer start-->
+	<div id="footer_item">
+		<w3foot></w3foot>
+	</div>
+	
+	<div class="bottom-tools" style="bottom: 40px;">
+		<a id="scrollUp" href="javascript:;" title="飞回顶部"></a>
+		<a class="onlinenote" style="" title="在线笔记" href="javascript:;" data-module="page">在线笔记</a>
+		<div class="qr-tool">二维码</div>
+		<a id="feedback" class="webjy" title="建议反馈" href="javascript:;" data-module="page" onclick="showDialogBox(this)">建议反馈</a>
+		<div class="qr-img"><img src="./AngularJS 教程_w3cschool_files/w3cschool.jpg" alt="二维码"></div>
+	</div>
+
+	<div class="feedback-Box" style="display: none;">
+		<div class="feedback-Box-content" style="width: 800px;">
+			<div class="feedback-Box-top">
+				<span class="feedback-Box-title">意见反馈</span>
+				<span onclick="closeDialogBox(this)" class="feedback-Box-close">X</span>
+			</div>
+			<ul>
+				<li class="feedback-box">
+					<div id="feedbackRadio" type="radio" name="feedbackType" data-value="0" style=""> 意见反馈：</div>
+					<textarea name="reportInfo" id="elmaaa" class="feedback-text" rows="15" placeholder="请留下您宝贵的意见反馈吧。" style="width: 700px;height:200px;overflow:auto;"></textarea>
+					<p>联系方式：</p>
+					<input type="text" placeholder="留个联系方式呗..." name="reportAddress" class="radio-text" id="reportAddress" style="height: 30px;width: 200px;">
+				</li>
+			</ul>
+			<button class="search-s" onclick="dialogSubmit(this)" id="reportSubmit">提交</button>
+		</div>
+	</div>
+
+	<div id="note-start" style="display: none"></div>
+
+	<div id="detail" style="display:none;">
+		<div id="note-Dialog" class="note-Dialog">
+
+			<div class="note-Box-content">
+				<div class="ntitlebox">
+					<input type="text" placeholder="" name="ntitle" class="ntitle" id="ntitle">
+				</div>
+				<div id="editorarea">
+					<textarea name="ncontent" id="ncontent" class="ncontent" rows="15" placeholder="" style="width: 700px;height:200px;overflow:auto;"></textarea>
+				</div>
+				<p></p>
+				<a class="closenote" href="http://www.w3cschool.cn/my/note" target="_blank">查看完整版笔记</a>
+				<button class="notesubmit" id="notesubmit">保存</button>
+				<button class="notebtn pull-right closenote" style="margin:20px 0">关闭</button>
+			</div>
+		</div>
+	</div>
+	<!--footer end-->
+	<div class="widget-body" data-type="project">
+		<div class="widget-main" style="display: none;">
+			<div class="widget-box">
+				<div class="slogn">Hi，看起来你挺喜欢这些内容，但是你还没有注册帐号！当你创建了帐号，你可以收藏感兴趣的内容，并记录你的阅读状态！</div>
+				<div class="quicklogin quick-box">
+					<a href="http://www.w3cschool.cn/register?refer=/angularjs/angularjs-tutorial.html">立即注册</a>
+				</div>
+				<div class="sig-group">
+					<a href="http://www.w3cschool.cn/login?refer=/angularjs/angularjs-tutorial.html">已有账号，登录</a>
+				</div>
+			</div>
+			<a class="widget-box-close" href="javascript:;" title="关闭">X</a>
+		</div>
+	</div>
+	<div class="pay-area" data-static="//www.w3cschool.cn/statics">
+		<div class="pay-tip-Box" style="display:none;">
+			<div class="pay-tip-content">
+				<div class="pay-tip-top"><span class="pay-tip-title">赞赏支持</span><span class="pay-tip-close">X</span></div>
+				<div class="pay-tip-body">
+					<div class="pay-tip-price pay-tip-price-first">
+						<a href="javascript:;" data-price="2" class="pay-tip-btn pay-tip-btn-ck">&nbsp;2元&nbsp;</a>
+						<a href="javascript:;" data-price="4" class="pay-tip-btn">&nbsp;4元&nbsp;</a>
+						<a href="javascript:;" data-price="8" class="pay-tip-btn">&nbsp;8元&nbsp;</a>
+					</div>
+					<div class="pay-tip-price">
+						<a href="javascript:;" data-price="16" class="pay-tip-btn">16元</a>
+						<a href="javascript:;" data-price="32" class="pay-tip-btn">32元</a>
+						<a href="javascript:;" data-price="64" class="pay-tip-btn">64元</a>
+					</div>
+					<div class="pay-tip-paytype"><span>支付方式:</span><input type="radio" name="tiptype" checked="checked"><img src="./AngularJS 教程_w3cschool_files/alipay.png"><input type="radio" name="tiptype" disabled="disabled"><img src="./AngularJS 教程_w3cschool_files/wechatpay.png" class="pay-tip-gray"></div>
+					<div class="pay-fbi-waring"><span>特别提醒:本次支付为虚拟物品,不予退款,敬请谅解</span></div>
+					<div class="pay-tip-gopay">
+						<a href="javascript:;">前往支付</a>
+					</div>
+				</div>
+				<div class="pay-tip-result" style="display:none;">
+					<div class="pay-tip-result-title"><span>支付遇到问题?</span></div>
+					<div class="pay-tip-result-waring"><span><strong>温馨提示:</strong>支付完成前请不要关闭窗口,完成支付后请根据情况点击下面按钮</span></div>
+					<div class="pay-tip-result-btn">
+						<a href="javascript:;" id="pay-success">赞赏成功</a>
+						<a href="javascript:;" id="pay-error">遇到问题</a>
+					</div>
+				</div>
+			</div>
+</div>

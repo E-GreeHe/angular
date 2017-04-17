@@ -1,0 +1,138 @@
+<div>
+	<div id="tpn" class="content-links">
+		<div class="previous-link">←
+			<a href="/angularjs/angularjs-tutorial.html" title="AngularJS 教程">AngularJS 教程</a>
+		</div>
+		<div class="next-link">
+			<a href="/angularjs/angularjs-expressions.html" title="AngularJS 表达式">AngularJS 表达式</a> →</div>
+	</div>
+	<!--广告放置-->
+	<div class="content-abox">
+		<a href="//www.w3cschool.cn/index/adlog?url=//www.bjsxt.com&amp;type=content" target="_blank" rel="nofollow"><img src="/attachments/image/20170405/1491384200537518.gif" alt="尚学堂"></a>
+	</div>
+	<div class="content-bg">
+		<div class="content-head">
+			<div class="content-head-title">
+				<h1 class="content-title">AngularJS 简介</h1>
+				<a class="correction" href="/edit/angularjs/angularjs-intro" rel="nofollow"><i class="edit-error-icon"></i>我要纠错</a>
+			</div>
+			<div class="content-group">
+				<span id="content-head-viewcount"><i class="viewcount-icon"></i><span>阅读(14229)</span></span>
+				<a id="hbstar" href="javascript:;" onclick="isstar()" data-type="star"><i class="star-icon"></i><span>收藏</span></a>
+				<a class="btn-thumbs-up" href="javascript:;" onclick="islike()"><i class="thumbs-up-icon"></i><span id="likestatus">赞</span>(<span id="likecount">3</span>)</a>
+				<a href="javascript:;" title="分享" class="share-km-a btn btn-sm popup_more bdsharebuttonbox bdshare-button-style2-16" data-cmd="more" data-bd-bind="1492425977358"><i class="share-icon"></i><span>分享</span></a>
+				<a id="newversion" href="javascript:;" onclick="newversion()"><i class="newversion-icon"></i><span>新版预览</span></a>
+			</div>
+		</div>
+		<div class="content-intro view-box">
+			<h2>AngularJS <span class="color_h1">简介</span> </h2>
+			<hr>
+			<p class="intro">AngularJS 是一个 <strong>JavaScript 框架</strong>。它可通过 &lt;script&gt; 标签添加到 HTML 页面。</p>
+			<p class="intro">AngularJS 通过 <strong><a href="angularjs-directives.html">指令</a></strong> 扩展了 HTML，且通过 <strong><a href="angularjs-expressions.html">表达式</a></strong> 绑定数据到 HTML。</p>
+			<hr>
+			<h2>AngularJS 是一个 JavaScript 框架</h2>
+			<p>AngularJS 是一个 JavaScript 框架。它是一个以 JavaScript 编写的库。</p>
+			<p>AngularJS 是以一个 JavaScript 文件形式发布的，可通过 script 标签添加到网页中：</p>
+			<div class="example">
+				<div class="example_code"> &lt;script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"&gt;&lt;/script&gt;</div>
+			</div>
+			<p> </p>
+			<table class="lamp    ">
+				<tbody>
+					<tr>
+						<th style="width:34px"><img src="/statics/images/course/lamp.jpg" alt="Note" style="height:32px;width:32px"></th>
+						<td>我们建议把脚本放在 &lt;body&gt; 元素的底部。<br> 这会提高网页加载速度，因为 HTML 加载不受制于脚本加载。</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<h2>AngularJS 扩展了 HTML</h2>
+			<p>AngularJS 通过 <strong>ng-directives</strong> 扩展了 HTML。</p>
+			<p><strong>ng-app</strong> 指令定义一个 AngularJS 应用程序。</p>
+			<p><strong>ng-model</strong> 指令把元素值（比如输入域的值）绑定到应用程序。</p>
+			<p><strong>ng-bind</strong> 指令把应用程序数据绑定到 HTML 视图。</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;!DOCTYPE html&gt;<br> &lt;html&gt;<br> &lt;body&gt;<br><br>&lt;div ng-app=""&gt;<br> &nbsp; &lt;p&gt;在输入框中尝试输入：&lt;/p&gt;<br> &nbsp; &lt;p&gt;姓名：&lt;input type="text" ng-model="name"&gt;&lt;/p&gt;<br> &nbsp; &lt;p ng-bind="name"&gt;&lt;/p&gt;<br> &lt;/div&gt;<br><br> &lt;script src="//www.w3cschool.cn/try/angularjs/1.2.5/angular.min.js"&gt;&lt;/script&gt;<br><br> &lt;/body&gt;<br> &lt;/html&gt;<br> </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_intro" target="_blank">尝试一下 »</a>
+			</div>
+			<p>实例讲解：</p>
+			<p>当网页加载完毕，AngularJS 自动开启。</p>
+			<p><strong>ng-app</strong> 指令告诉 AngularJS，&lt;div&gt; 元素是 AngularJS <strong>应用程序</strong> 的"所有者"。</p>
+			<p><strong>ng-model</strong> 指令把输入域的值绑定到应用程序变量 <strong>name</strong>。</p>
+			<p><strong>ng-bind</strong> 指令把应用程序变量 name 绑定到某个段落的 innerHTML。</p>
+			<p> </p>
+			<table class="lamp    ">
+				<tbody>
+					<tr>
+						<th style="width:34px"><img src="/statics/images/course/lamp.jpg" alt="Note" style="height:32px;width:32px"></th>
+						<td>如果您移除了 <strong>ng-app</strong> 指令，HTML 将直接把表达式显示出来，不会去计算表达式的结果。</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			<h2>什么是 AngularJS？</h2>
+			<p>"AngularJS 是专门为应用程序设计的 HTML。"</p>
+			<p>AngularJS 使得开发现代的单一页面应用程序（SPAs：Single Page Applications）变得更加容易。 </p>
+			<ul>
+				<li>AngularJS 把应用程序数据绑定到 HTML 元素。</li>
+				<li>AngularJS 可以克隆和重复 HTML 元素。</li>
+				<li>AngularJS 可以隐藏和显示 HTML 元素。</li>
+				<li>AngularJS 可以在 HTML 元素"背后"添加代码。</li>
+				<li>AngularJS 支持输入验证。</li>
+			</ul>
+			<hr>
+			<h2>AngularJS 指令</h2>
+			<p>正如您所看到的，AngularJS 指令是以 <strong>ng</strong> 作为前缀的 HTML 属性。</p>
+			<p><strong>ng-init</strong> 指令初始化 AngularJS 应用程序变量。</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div ng-app="" ng-init="firstName='John'"&gt;<br><br> &lt;p&gt;姓名为 &lt;span ng-bind="firstName"&gt;&lt;/span&gt;&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_intro_directives" target="_blank">尝试一下 »</a>
+			</div>
+			<p> </p>
+			<table class="lamp    ">
+				<tbody>
+					<tr>
+						<th style="width:34px"><img src="/statics/images/course/lamp.jpg" alt="Note" style="height:32px;width:32px"></th>
+						<td>HTML5 允许扩展的（自制的）属性，以 <strong>data-</strong> 开头。<br> AngularJS 属性以 <strong>ng-</strong> 开头，但是您可以使用 <strong>data-ng-</strong> 来让网页对 HTML5 有效。</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>带有有效的 HTML5：</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;div data-ng-app="" data-ng-init="firstName='John'"&gt;<br><br> &lt;p&gt;姓名为 &lt;span data-ng-bind="firstName"&gt;&lt;/span&gt;&lt;/p&gt;<br><br> &lt;/div&gt; </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_intro_directives_html" target="_blank">尝试一下 »</a>
+			</div> <br>
+			<hr>
+			<h2>AngularJS 表达式</h2>
+			<p>AngularJS 表达式写在双大括号内：<strong>{{ expression }}</strong>。</p>
+			<p>AngularJS 表达式把数据绑定到 HTML，这与 <strong>ng-bind</strong> 指令有异曲同工之妙。</p>
+			<p>AngularJS 将在表达式书写的位置"输出"数据。</p>
+			<p><strong>AngularJS 表达式</strong> 很像 <strong>JavaScript 表达式</strong>：它们可以包含文字、运算符和变量。</p>
+			<p>实例 {{ 5 + 5 }} 或 {{ firstName + " " + lastName }}</p>
+			<div class="example">
+				<h2 class="example">AngularJS 实例</h2>
+				<div class="example_code notranslate htmlHigh"> &lt;!DOCTYPE html&gt;<br> &lt;html&gt;<br> &lt;body&gt;<br><br>&lt;div ng-app=""&gt;<br> &nbsp; &lt;p&gt;我的第一个表达式： {{ 5 + 5 }}&lt;/p&gt;<br> &lt;/div&gt;<br><br> &lt;script src="//www.w3cschool.cn/try/angularjs/1.2.5/angular.min.js"&gt;&lt;/script&gt;<br><br> &lt;/body&gt;<br> &lt;/html&gt;<br> </div> <br>
+				<a class="tryitbtn" href="/tryrun/showhtml/try_ng_intro_expression" target="_blank">尝试一下 »</a>
+			</div> <br><br><br></div>
+	</div>
+	<!--我要上墙-->
+	<div class="project-sq">
+		<div class="project-sq-info"><span>您的支持将鼓励我们做得更好</span></div>
+		<ul class="project-sq-avatar"></ul>
+		<div class="project-sq-btnarea">
+			<a href="javascript:;">赞赏支持</a>
+		</div>
+	</div>
+	<!--我要上墙结束-->
+	<div id="bpn" class="content-links">
+		<div class="previous-link">←
+			<a href="/angularjs/angularjs-tutorial.html" title="AngularJS 教程">AngularJS 教程</a>
+		</div>
+		<div class="next-link">
+			<a href="/angularjs/angularjs-expressions.html" title="AngularJS 表达式">AngularJS 表达式</a> →</div>
+	</div>
+
+</div>
