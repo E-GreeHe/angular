@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/ionic.css" />
+
+	<body>
+		<ion-header-bar align-title="center" class="bar-positive">
+			<h1 class="title">Title!</h1>
+		</ion-header-bar>
+		<ion-content scroll="true" padding="false">
+			<ion-scroll zooming="true" direction="xy" style="width: 100%; height: 500px">
+        <div style="width: 5000px; height: 5000px; background: url('http://www.runoob.com/try/demo_source/Europe_geological_map-en.jpg') repeat"></div>
+      </ion-scroll>
+		</ion-content>
+		<ion-footer-bar class="bar-positive"></ion-footer-bar>
+	</body>
+	<script src="js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"])
+	</script>
+</html>
+

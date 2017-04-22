@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/ionic.css" />
+
+	<body ng-controller="indexCtrl">
+		<ion-side-menus>
+			<!-- 中间内容 -->
+			<ion-side-menu-content>
+				<ion-header-bar ng-click="scrollTop()" align-title="center" class="bar-positive">
+					<a ng-click="toggleLeft()" class="button button-outline icon-right ion-navicon button-balanced">Reorder</a>
+					<h1 class="title">美女图片</h1>
+				</ion-header-bar>
+				<ion-content scroll="true" padding="false">
+					<!--<ion-refresher on-refresh="loadMore()"></ion-refresher>-->
+					<div class="list">
+
+						<a ng-repeat="news in newss" class="item item-thumbnail-left" ng-href="{{news.url}}">
+							<img ng-src="{{news.picUrl}}">
+							<h2>{{news.title}}</h2>
+							<p>{{news.description}}</p>
+						</a>
+					</div>
+					<ion-infinite-scroll on-infinite="loadMore()"></ion-infinite-scroll>
+				</ion-content>
+			</ion-side-menu-content>
+
+			<!-- 左侧菜单 -->
+			<ion-side-menu side="left">
+				<div class="bar bar-header">
+					<div class="h1 title">列表分隔符</div>
+				</div>
+				<div class="list">
+
+					<div class="item item-divider">
+						Candy Bars
+					</div>
+
+					<a menu-close class="item" href="#">
+						Butterfinger
+					</a>
+
+					<a class="item" href="#">
+						Kit Kat
+					</a>
+
+					<a class="item" href="#">
+						Snickers
+					</a>
+
+					<a class="item" href="#">
+						Twix
+					</a>
+
+					<div class="item item-divider">
+						Hard Candy
+					</div>
+
+					<a class="item" href="#">
+						Jolly Rancher
+					</a>
+
+					<a class="item" href="#">
+						LifeSavers
+					</a>
+
+					<a class="item" href="#">
+						Skittles
+					</a>
+
+					<a class="item" href="#">
+						Gobstoppers
+					</a>
+
+				</div>
+			</ion-side-menu>
+
+			<!-- 右侧菜单 -->
+			<ion-side-menu side="right">
+				right
+			</ion-side-menu>
+		</ion-side-menus>
+	</body>
+	<script src="js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.controller("indexCtrl", function($scope, $http, $ionicScrollDelegate,$ionicSideMenuDelegate) {
+			$scope.page = 1;
+			$scope.newss = [];
+			$scope.loadMore = function() {
+				$http({
+					method: "GET",
+					url: "http://localhost/angular/yuyu/api.php",
+					params: {
+						page: $scope.page++
+					}
+				}).then(function(data) {
+					console.log(data)
+					$scope.newss = data.data.showapi_res_body.newslist.concat($scope.newss);
+					$scope.$broadcast('scroll.refreshComplete');
+					$scope.$broadcast('scroll.infiniteScrollComplete');
+				})
+			}
+			$scope.scrollTop = function() {
+				$ionicScrollDelegate.scrollTop();
+			};
+			 $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+		})
+	</script>
+
+</html>

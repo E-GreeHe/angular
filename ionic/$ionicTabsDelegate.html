@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/ionic.css" />
+
+	<body ng-controller="indexCtrl">
+		<ion-header-bar ng-click="scrollTop()" align-title="center" class="bar-positive">
+			<h1 class="title">美女图片</h1>
+		</ion-header-bar>
+		<ion-content scroll="true" padding="false">
+			<button ng-click="selectTabWithIndex(2)">选择标签2</button>
+		</ion-content>
+		<ion-tabs class="tabs-positive tabs-icon-only">
+
+			<ion-tab title="首页" badge="10" icon-on="ion-heart" icon-off="ion-heart-broken">
+				1
+			</ion-tab>
+
+			<ion-tab title="关于" icon-on="ion-search" icon-off="ion-flag">
+				2
+			</ion-tab>
+
+			<ion-tab title="设置" icon-on="ion-star" icon-off="ion-heart-broken">
+				<!-- 标签 3 内容 -->
+			</ion-tab>
+
+		</ion-tabs>
+	</body>
+	<script src="js/ionic.bundle.js"></script>
+	<script>
+		var app = angular.module("ionicApp", ["ionic"]);
+		app.controller("indexCtrl", function($scope, $http, $ionicScrollDelegate, $ionicTabsDelegate) {
+			$scope.page = 1;
+			$scope.newss = [];
+			$scope.loadMore = function() {
+				$http({
+					method: "GET",
+					url: "http://localhost/angular/yuyu/api.php",
+					params: {
+						page: $scope.page++
+					}
+				}).then(function(data) {
+					console.log(data)
+					$scope.newss = data.data.showapi_res_body.newslist.concat($scope.newss);
+					$scope.$broadcast('scroll.refreshComplete');
+					$scope.$broadcast('scroll.infiniteScrollComplete');
+				})
+			}
+			$scope.selectTabWithIndex = function(index) {
+				$ionicTabsDelegate.select(index);
+			}
+			$scope.scrollTop = function() {
+				$ionicScrollDelegate.scrollTop();
+			};
+		})
+	</script>
+
+</html>
