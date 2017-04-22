@@ -1,0 +1,31 @@
+<div class="page article js_show">
+	<div class="page__bd">
+		<article class="weui-article">
+			<h1>{{newData.title}}</h1>
+			<section>
+				<section>
+					<p>
+						{{newData.desc}}
+					</p>
+					<p>
+						<img ng-click="showGallery()" ng-src="{{newData.image?newData.image:''}}" alt="">
+					</p>
+				</section>
+				<section>
+					<p>
+						{{newData.text}}
+					</p>
+				</section>
+			</section>
+		</article>
+	</div>
+	<div class="weui-gallery" style="display: {{isShowGallery?'block':'none'}};">
+		<span class="weui-gallery__img" style="background-image: url({{newData.image}});"></span>
+		<div class="weui-gallery__opr">
+			<a ng-click="isShowGallery=false" href="javascript:" class="weui-gallery__del">
+				<!--<i class="weui-icon-delete weui-icon_gallery-delete">隐藏</i>-->
+				<p style="color: white;">隐藏</p>
+			</a>
+		</div>
+	</div>
+</div>

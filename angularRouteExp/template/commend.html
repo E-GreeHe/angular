@@ -1,0 +1,22 @@
+<!--推荐页-->
+<!--头部-->
+<newheader></newheader>
+<div>
+	<!--搜索-->
+	<newsearch></newsearch>
+	<!--轮播图-->
+	<canrousel></canrousel>
+	<!--列表页组件-->
+	<newlist></newlist>
+</div>
+<newloading></newloading>
+<div ng-show="isShowdialog">
+	<div class="weui-mask"></div>
+	<div class="weui-dialog">
+		<div class="weui-dialog__hd"><strong class="weui-dialog__title">弹窗标题</strong></div>
+		<div class="weui-dialog__bd">弹窗内容，告知当前页面信息等</div>
+		<div class="weui-dialog__ft">
+			<a ng-click="isShowdialog=false" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+		</div>
+	</div>
+</div>
