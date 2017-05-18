@@ -1,2 +1,2 @@
 # angular
-angularJS for E-Gree
+| :eyes: angularJS for E-Gree |
